@@ -44,7 +44,17 @@ const distance = (listA, listB) => {
 
   return distanceList;
 };
+const distanceSimilarity = (listA, listB) => {
+  const distanceList = [];
+  for (let i = 0; i < listA.length; i++) {
+    const occurrences = listB.filter((num) => num === listA[i]).length;
+    const similarity = listA[i] * occurrences;
+    distanceList.push(similarity);
+  }
+  return distanceList;
+};
+const totalSimilarity = sumTotalDistance(distanceSimilarity(list1, list2));
+console.log(totalSimilarity);
 
 const totalDistance = sumTotalDistance(distance(list1, list2));
-
 console.log(totalDistance);
